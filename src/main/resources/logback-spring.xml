@@ -1,0 +1,19 @@
+<configuration>
+    <property resource="bootstrap.yml" />
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <fieldNames>
+                <timestamp>timestamp</timestamp>
+                <level>level</level>
+                <message>[ignore]</message>
+                <thread>[ignore]</thread>
+                <levelValue>[ignore]</levelValue>
+                <version>[ignore]</version>
+            </fieldNames>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>

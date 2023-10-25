@@ -1,0 +1,51 @@
+# Arquivos temporários
+*~
+
+# Bytecode compilado
+/target/
+
+# Logs e arquivos de saída
+/logs/
+/output/
+
+# Arquivos de configuração específicos do ambiente
+*.iml
+*.idea
+.vscode/
+
+# Dependências do Maven
+/.mvn/
+/mvnw
+/mvnw.cmd
+/lib/
+# Você pode personalizar isso para corresponder à estrutura do seu projeto Maven
+
+# Dependências do Gradle
+/.gradle/
+/build/
+.gradle/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Arquivos de configuração de IDE geral
+*.iml
+*.ipr
+*.iws
+.idea/
+.gradle/
+.classpath
+.project
+
+# Arquivos de configuração específicos de OS ou IDE
+.DS_Store
+Thumbs.db
+
+# Arquivos de compilação
+.class
+
+# Arquivos de saída da ferramenta de relatório de código (por exemplo, FindBugs)
+report.txt
+

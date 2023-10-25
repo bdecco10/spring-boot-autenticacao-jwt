@@ -1,0 +1,96 @@
+# User/pass
+authentication:
+    username: centric_plm
+    password: centric_plm
+server:
+  port: 8085
+spring:
+  application:
+      name: authentication
+  cloud:
+    config:
+      profile: ${profile:dev}
+      label: main
+  config:
+    import: optional:configserver:http://localhost:8888
+  data:
+    mongodb:
+      host: mongo
+      port: 27017
+      database:
+        mydatabase
+      username: admin
+      password: senha123
+  kafka:
+    consumer:
+      bootstrap-servers: 172.18.0.4:9092
+      group-id: my-consumer-group
+      auto-offset-reset: earliest
+      max-poll-retries: 3
+      properties:
+        spring.json.trusted.packages: "expertostech.autenticacao.jwt.kafka.dto"
+    producer:
+      bootstrap-servers: 172.18.0.4:9092
+      properties:
+        spring.json.trusted.packages: "expertostech.autenticacao.jwt.kafka.dto"
+
+# Configuracao logback
+# Nome da aplicacao
+myapp:
+  name: SpringBootAuthentication
+  version: 1.0.0
+
+logging:
+    level:
+      root: INFO
+      org:
+        springframework:
+          data:
+            mongodb:
+              core: ERROR
+          security: ERROR
+          cloud: ERROR
+          boot:
+            diagnostics: ERROR
+        apache:
+          kafka:
+            clients:
+              NetworkClient: ERROR
+      com:
+        netflix:
+          discovery: ERROR
+
+management:
+  endpoint:
+    metrics:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  metrics:
+    distribution:
+      percentiles-histogram:
+        all: true
+  export:
+    prometheus:
+      enabled: true
+  prometheus:
+    enabled: true
+  tags:
+    application: authentication
+  naming:
+    gauge:
+     # Configure métricas personalizadas aqui
+      myapp:
+        requests:
+          statistic: TOTAL
+
+springdoc:
+  api-docs:
+    enabled: true                # Habilita a geração de documentação API
+    path: /v3/api-docs           # Define o caminho para acessar a documentação API
+
+  swagger-ui:
+    enabled: true                # Habilita a interface Swagger UI
+    path: /swagger-ui.html

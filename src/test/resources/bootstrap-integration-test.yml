@@ -1,0 +1,12 @@
+# Configura��o de Kafka para testes de integra��o
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: my-consumer-group
+      auto-offset-reset: earliest #Inicie a partir do início do tópico
+    producer:
+      bootstrap-servers: localhost:9092
+  embedded:
+    kafka:
+      brokers: localhost:9092
